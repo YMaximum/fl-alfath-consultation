@@ -22,6 +22,10 @@ const NavContainer = styled.nav`
   align-items: center;
   margin: 0 auto;
   padding: 0 2rem;
+
+  @media screen and (max-width: 600px) {
+    padding: 0 1rem;
+  }
 `;
 
 const Logo = styled.p`
@@ -66,7 +70,9 @@ export default function Navbar(): React.ReactElement {
     <>
       <Header ref={HeaderRef}>
         <NavContainer>
-          <Logo>A.</Logo>
+          <a href="#">
+            <Logo>A.</Logo>
+          </a>
           <NavItems>
             <ul>
               <li>

@@ -13,6 +13,10 @@ const ContactContainer = styled.div`
   margin: 0 auto;
   max-width: ${styleConstants.containerMaxWidth};
   padding: 0 2rem;
+
+  @media screen and (max-width: 600px) {
+    padding: 0 1rem;
+  }
 `;
 
 const ContactCard = styled.div`
@@ -170,6 +174,7 @@ const ContactCard = styled.div`
 
       p {
         font-size: 14px;
+        text-align: center;
       }
 
       a {

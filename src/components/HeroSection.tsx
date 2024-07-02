@@ -17,6 +17,11 @@ const SectionContainer = styled.section`
 
   @media screen and (max-width: 600px) {
     margin-bottom: 350px;
+    padding: 0 1rem;
+  }
+
+  @media screen and (max-width: 450px) {
+    margin-bottom: 400px;
   }
 `;
 
@@ -95,6 +100,7 @@ const SubHero = styled.div`
 
   @media screen and (max-width: 600px) {
     top: 200px;
+    padding: 2rem 2rem;
   }
 `;
 

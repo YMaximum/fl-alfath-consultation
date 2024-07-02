@@ -43,6 +43,10 @@ const ContentContainer = styled.div`
       visibility: hidden;
     }
   }
+
+  @media screen and (max-width: 600px) {
+    padding: 0 1rem;
+  }
 `;
 
 const Heading = styled.h2`
@@ -71,6 +75,10 @@ const RightWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
+
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const ServiceCard = styled.div`

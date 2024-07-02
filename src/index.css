@@ -12,4 +12,9 @@ body {
   font-style: normal;
   font-variation-settings:
     "slnt" 0;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 }
