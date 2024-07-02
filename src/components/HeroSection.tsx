@@ -21,7 +21,7 @@ const SectionContainer = styled.section`
   }
 
   @media screen and (max-width: 450px) {
-    margin-bottom: 400px;
+    margin-bottom: 350px;
   }
 `;
 
