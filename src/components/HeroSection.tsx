@@ -21,7 +21,11 @@ const SectionContainer = styled.section`
   }
 
   @media screen and (max-width: 450px) {
-    margin-bottom: 350px;
+    margin-bottom: 400px;
+  }
+
+  @media screen and (max-width: 350px) {
+    margin-bottom: 450px;
   }
 `;
 
@@ -209,9 +213,9 @@ export default function HeroSection(): React.ReactElement {
       <SectionContainer id="hero">
         <Hero>
           <FirstContentContainer>
-            <Name>Alfath</Name>
+            <Name>Naufal Alfath</Name>
             <Headline>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Perluas pasar bisnis makananmu dengan sertifikat halal.
             </Headline>
           </FirstContentContainer>
           <SubHero>
@@ -221,31 +225,34 @@ export default function HeroSection(): React.ReactElement {
                 <div>
                   <h3>200+ Sertifikasi</h3>
                   <p>
-                    Kami telah melayani lebih dari 200 sertifikasi dalam 2 tahun
+                    Kami telah berpartisipasi dalam 200+ proses sertifikasi
+                    halal
                   </p>
                 </div>
               </SubHeroPointCard>
               <SubHeroPointCard>
                 <BoltIcon />
                 <div>
-                  <h3>Unique design</h3>
-                  <p>Lorem ipsum</p>
+                  <h3>2+ Tahun</h3>
+                  <p>Pengalaman 2+ tahun dengan regulasi halal terbaru</p>
                 </div>
               </SubHeroPointCard>
               <SubHeroPointCard>
                 <BoltIcon />
                 <div>
-                  <h3>Unique design</h3>
-                  <p>Lorem ipsum</p>
+                  <h3>1 Bulan Saja</h3>
+                  <p>
+                    Hanya butuh 1 bulan untuk jaminan terbit sertifikat halal
+                  </p>
                 </div>
               </SubHeroPointCard>
             </SubHeroPoints>
             <SubHeroSecondContent>
               <GettingStartedHeadlines>
                 <p>
-                  Lorem ipsum, dolor sit amet <span>consectetur</span>
+                  Ini adalah momen usahamu, <span>saatnya halal</span>
                 </p>
-                <p>consectetur adipisicing elit</p>
+                <p>Gunakan layanan kami sekarang</p>
               </GettingStartedHeadlines>
               <a href="#contact">
                 <GettingStartedButton>

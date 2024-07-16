@@ -126,10 +126,11 @@ export default function ServicesSection(): React.ReactElement {
               <span>Jasa</span> yang kami tawarkan
             </Heading>
             <Description>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus
-              aliquam nam accusantium natus aspernatur perferendis omnis laborum
-              tempore, esse dolor illo, iste maiores labore repudiandae
-              voluptates error hic soluta deserunt!
+              Sertifikasi halal akan jauh lebih mudah dengan bantuan teman
+              diskusi yang tentu sudah berpengalaman dalam mengurus proses dari
+              awal penyusunan dokumen dan pendaftaran, proses pemeriksaan,
+              hingga terbit sertifikat halal. Kami hadir untuk menemani
+              perjalanan usahamu dalam prosesnya.
             </Description>
           </LeftWrapper>
           <RightWrapper>
@@ -137,14 +138,16 @@ export default function ServicesSection(): React.ReactElement {
               <GroupPersonIcon />
               <h3 className="service">Konsultasi</h3>
               <p className="desc">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Tanyakan semua hal seputar sertifikasi halal dan regulasi yang
+                berlaku saat ini.
               </p>
             </ServiceCard>
             <ServiceCard>
               <DevGuideIcon />
-              <h3 className="service">Sertifikasi</h3>
+              <h3 className="service">Pendampingan</h3>
               <p className="desc">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Pendaftaran halal usahamu akan kami susun sesuai dengan data dan
+                resep usahamu.
               </p>
             </ServiceCard>
             <ServiceCard>
