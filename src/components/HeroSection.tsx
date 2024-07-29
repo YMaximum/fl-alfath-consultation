@@ -213,9 +213,9 @@ export default function HeroSection(): React.ReactElement {
       <SectionContainer id="hero">
         <Hero>
           <FirstContentContainer>
-            <Name>Naufal Alfath</Name>
+            <Name>Fal Consulting</Name>
             <Headline>
-              Perluas pasar bisnis makananmu dengan sertifikat halal.
+              Raih Pasar Lebih Luas dengan Sertifikasi Halal untuk Bisnis Anda.
             </Headline>
           </FirstContentContainer>
           <SubHero>

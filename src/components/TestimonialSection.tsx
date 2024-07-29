@@ -94,10 +94,10 @@ const CustomCarousel = styled(Carousel)``;
 export default function TestimonialSection(): React.ReactElement {
   const testimonialData = [
     {
-      name: "Ahmad Yasir",
-      company: "PT Dagang",
+      name: "Hotel Forest Hill Ciwidey",
+      company: "",
       testimony:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed eafacere vero! Facilis ex",
+        "Atas nama manajemen, saya mengucapkan terima kasih yang sebesar-besarnya kepada Pak Naufal dan tim MUI Jabar yang telah membantu proses pengajuan Sertifikat Halal untuk restoran kami. Terima kasih banyak, Pak Naufal, atas kesabaran dan respons yang cepat dalam membantu kami yang masih awam dalam pengurusan izin ini, dari awal hingga akhir. Penjelasan yang sangat detail dan pendampingan pada setiap langkah, termasuk penggunaan beberapa portal pengajuan, sangat kami hargai. Terima kasih sekali lagi, Pak. Semoga sukses selalu.",
     },
     {
       name: "Yasir Ahmad",

@@ -22,6 +22,7 @@ const ContentContainer = styled.div`
   display: flex;
   gap: 2rem;
   align-items: center;
+  min-height: 300px;
 
   div.illustration-dot {
     position: absolute;
@@ -126,11 +127,11 @@ export default function ServicesSection(): React.ReactElement {
               <span>Jasa</span> yang kami tawarkan
             </Heading>
             <Description>
-              Sertifikasi halal akan jauh lebih mudah dengan bantuan teman
-              diskusi yang tentu sudah berpengalaman dalam mengurus proses dari
-              awal penyusunan dokumen dan pendaftaran, proses pemeriksaan,
-              hingga terbit sertifikat halal. Kami hadir untuk menemani
-              perjalanan usahamu dalam prosesnya.
+              Dapatkan Sertifikasi Halal dengan Mudah Bersama Kami. Dengan
+              pengalaman yang luas, kami akan mendampingi Anda mulai dari
+              penyusunan dokumen, pendaftaran, pemeriksaan, hingga sertifikat
+              halal terbit. Kami hadir untuk mendukung perjalanan bisnis Anda
+              sepanjang proses ini.
             </Description>
           </LeftWrapper>
           <RightWrapper>
@@ -148,20 +149,6 @@ export default function ServicesSection(): React.ReactElement {
               <p className="desc">
                 Pendaftaran halal usahamu akan kami susun sesuai dengan data dan
                 resep usahamu.
-              </p>
-            </ServiceCard>
-            <ServiceCard>
-              <GroupPersonIcon />
-              <h3 className="service">Konsultasi</h3>
-              <p className="desc">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              </p>
-            </ServiceCard>
-            <ServiceCard>
-              <DevGuideIcon />
-              <h3 className="service">Sertifikasi</h3>
-              <p className="desc">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
               </p>
             </ServiceCard>
           </RightWrapper>
