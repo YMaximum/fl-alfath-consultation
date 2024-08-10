@@ -71,7 +71,7 @@ export default function Navbar(): React.ReactElement {
       <Header ref={HeaderRef}>
         <NavContainer>
           <a href="#">
-            <Logo>FCo.</Logo>
+            <Logo>Falhalal</Logo>
           </a>
           <NavItems>
             <ul>

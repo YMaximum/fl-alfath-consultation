@@ -213,7 +213,7 @@ export default function HeroSection(): React.ReactElement {
       <SectionContainer id="hero">
         <Hero>
           <FirstContentContainer>
-            <Name>Fal Consulting</Name>
+            <Name>Falhalal</Name>
             <Headline>
               Raih Pasar Lebih Luas dengan Sertifikasi Halal untuk Bisnis Anda.
             </Headline>

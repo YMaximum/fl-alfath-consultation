@@ -1,13 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 import { colors, styleConstants } from "../styles/styles";
-import profilePlaceholder from "../assets/profile-placeholder.png";
+import forestHillLogo from "../assets/forest-hills-ciwidey-logo.png";
+import muviJayaBlessindoLogo from "../assets/muvi-jaya-blessindo.png";
+import repeatedSquareDark from "../assets/repeated-square-dark.webp";
+import quoteImg from "../assets/left-quote-svgrepo-com.svg";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 const SectionContainer = styled.section`
   width: 100%;
   margin-bottom: 100px;
+  background-image: url(${repeatedSquareDark});
+  border-radius: 24px 24px 0 0;
+  padding: 2rem 0;
 
   @media screen and (max-width: 600px) {
     margin-bottom: 50px;
@@ -17,7 +23,8 @@ const SectionContainer = styled.section`
 const ContentContainer = styled.div`
   margin: 0 auto;
   max-width: ${styleConstants.containerMaxWidth};
-  padding: 0 2rem;
+  padding: 5rem 2rem 2rem 2rem;
+  position: relative;
 
   @media screen and (max-width: 600px) {
     padding: 0 1rem;
@@ -25,109 +32,81 @@ const ContentContainer = styled.div`
 `;
 
 const Heading = styled.h2`
-  font-size: 32px;
+  font-size: 48px;
   font-weight: 600;
   margin-bottom: 1.5rem;
+  text-align: center;
+  color: ${colors.primaryWhite};
 
   span {
-    color: ${colors.primaryGreen};
+    color: ${colors.secondaryText};
   }
+
+  @media screen and (max-width: 600px) {
+    font-size: 32px;
+  }
+`;
+
+const TestimonyContainer = styled(Carousel)`
+  background-color: ${colors.primaryWhite};
+  border-radius: 1rem;
+  box-shadow: 0px 8px 0px 0px ${colors.primaryGreen} inset;
+  -webkit-box-shadow: 0px 8px 0px 0px ${colors.primaryGreen} inset;
+  -moz-box-shadow: 0px 8px 0px 0px ${colors.primaryGreen} inset;
 `;
 
 const TestimonyCard = styled.div`
-  margin: 0 1rem;
+  position: relative;
+  padding: 1.5rem;
+
+  img.quote-img {
+    position: absolute;
+    height: 60px;
+    opacity: 0.1;
+    top: 3%;
+    left: 2%;
+  }
 
   div.testimony {
-    background-color: ${colors.primaryGreen};
-    padding: 1.5rem;
-    color: ${colors.primaryWhite};
-    border-radius: 24px;
+    color: ${colors.primaryBlack};
     line-height: 24px;
     transition: all 0.3s;
-    cursor: pointer;
-
-    &.black {
-      background-color: #35493d;
-    }
-
-    &:hover {
-      box-shadow: 14px 14px 13px -12px rgba(0, 0, 0, 0.4);
-      -webkit-box-shadow: 14px 14px 13px -12px rgba(0, 0, 0, 0.4);
-      -moz-box-shadow: 14px 14px 13px -12px rgba(0, 0, 0, 0.4);
-    }
+    font-weight: 400;
+    font-size: 14px;
   }
 
   div.profile {
-    padding: 1.5rem;
-    margin-top: -2.5rem;
+    margin-top: 1rem;
     display: flex;
-    align-items: end;
-    gap: 1.5rem;
+    width: 100%;
+    justify-content: space-between;
 
     img {
-      background-color: ${colors.primaryWhite};
-      border-radius: 16px;
-      box-shadow: 8px 8px 13px -12px rgba(0, 0, 0, 0.61);
-      -webkit-box-shadow: 8px 8px 13px -12px rgba(0, 0, 0, 0.61);
-      -moz-box-shadow: 8px 8px 13px -12px rgba(0, 0, 0, 0.61);
-      width: 55px;
-      height: 55px;
+      height: 70px;
+      width: fit-content;
     }
 
-    div.details {
-      p.name {
-        font-weight: 700;
-        font-size: 16px;
-      }
-
-      p.company {
-        color: ${colors.secondaryText};
-        font-weight: 700;
-        font-size: 12px;
-      }
+    p.company {
+      color: ${colors.primaryGreen};
+      font-weight: 700;
+      font-size: 16px;
     }
   }
 `;
-
-const CustomCarousel = styled(Carousel)``;
 
 export default function TestimonialSection(): React.ReactElement {
   const testimonialData = [
     {
-      name: "Hotel Forest Hill Ciwidey",
-      company: "",
+      company: "Hotel Forest Hill Ciwidey",
+      profileLogo: forestHillLogo,
       testimony:
-        "Atas nama manajemen, saya mengucapkan terima kasih yang sebesar-besarnya kepada Pak Naufal dan tim MUI Jabar yang telah membantu proses pengajuan Sertifikat Halal untuk restoran kami. Terima kasih banyak, Pak Naufal, atas kesabaran dan respons yang cepat dalam membantu kami yang masih awam dalam pengurusan izin ini, dari awal hingga akhir. Penjelasan yang sangat detail dan pendampingan pada setiap langkah, termasuk penggunaan beberapa portal pengajuan, sangat kami hargai. Terima kasih sekali lagi, Pak. Semoga sukses selalu.",
+        "Saya atas nama management mengucapkan banyak terimakasih kepada tim Falhalal dan jajaran team MUI Jabar khususnya yang telah membantu pengajuan Sertifikat Halal Restaurant kami. Terimakasih banyak sudah sabar dan tanggap membantu kami yang masih awam dalam pengurusan izin tersebut dari awal hingga akhir, memberikan penjelasan yang sangat detail dan juga mendampingi kami sampai ke langkah-langkah penggunaan beberapa portal pengajuan.",
     },
     {
-      name: "Yasir Ahmad",
-      company: "PT Dagang",
+      company: "PT Muvi Jaya Blessindo",
+      profileLogo: muviJayaBlessindoLogo,
       testimony:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed eafacere vero! Facilis ex",
-    },
-    {
-      name: "Muhammad Yasir",
-      company: "PT Dagang",
-      testimony:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed eafacere vero! Facilis ex",
-    },
-    {
-      name: "Yassar",
-      company: "PT Dagang",
-      testimony:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed eafacere vero! Facilis ex",
-    },
-    {
-      name: "Pat",
-      company: "PT Dagang",
-      testimony:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed eafacere vero! Facilis ex",
-    },
-    {
-      name: "Alfath",
-      company: "PT Dagang",
-      testimony:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed eafacere vero! Facilis ex",
+        "Prosesnya sangat cepat dan informatif, dari awal pendaftaran sampe terbit sertifikat halal tidak ada kendala sama sekali, tim auditnya juga baik.",
     },
   ];
 
@@ -138,14 +117,11 @@ export default function TestimonialSection(): React.ReactElement {
           <Heading>
             Apa kata <span>mereka?</span>
           </Heading>
-          <CustomCarousel
+          <TestimonyContainer
             additionalTransfrom={0}
-            arrows
             autoPlaySpeed={3000}
             centerMode={false}
-            className=""
-            containerClass="container"
-            dotListClass=""
+            arrows={false}
             draggable
             focusOnSelect={false}
             infinite={false}
@@ -161,8 +137,8 @@ export default function TestimonialSection(): React.ReactElement {
                   max: 3000,
                   min: 1024,
                 },
-                items: 3,
-                slidesToSlide: 3,
+                items: 2,
+                slidesToSlide: 1,
               },
               mobile: {
                 breakpoint: {
@@ -177,34 +153,29 @@ export default function TestimonialSection(): React.ReactElement {
                   max: 1024,
                   min: 720,
                 },
-                items: 2,
-                slidesToSlide: 2,
+                items: 1,
+                slidesToSlide: 1,
               },
             }}
             rewind={false}
             rewindWithAnimation={false}
             rtl={false}
             shouldResetAutoplay
-            showDots={false}
-            sliderClass=""
+            showDots={true}
             slidesToSlide={1}
             swipeable
           >
             {testimonialData.map((item, index) => (
               <TestimonyCard key={index}>
-                <div className={`testimony ${index % 2 !== 0 && "black"}`}>
-                  {item.testimony}
-                </div>
+                <img className="quote-img" src={quoteImg} alt="quote image" />
+                <div className={`testimony`}>{item.testimony}</div>
                 <div className="profile">
-                  <img src={profilePlaceholder} alt="profile" />
-                  <div className="details">
-                    <p className="name">{item.name}</p>
-                    <p className="company">{item.company}</p>
-                  </div>
+                  <p className="company">{item.company}</p>
+                  <img src={item.profileLogo} alt="profile" />
                 </div>
               </TestimonyCard>
             ))}
-          </CustomCarousel>
+          </TestimonyContainer>
         </ContentContainer>
       </SectionContainer>
     </>

@@ -2,18 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import { colors, styleConstants } from "../styles/styles";
 import Carousel from "react-multi-carousel";
-import logo1 from "../assets/logo-placeholder-1.svg";
-import logo2 from "../assets/logo-placeholder-2.svg";
-import logo3 from "../assets/logo-placeholder-3.svg";
-import logo4 from "../assets/logo-placeholder-4.svg";
+import forestHillsLogo from "../assets/forest-hills-ciwidey-logo.png";
+import muviJayaBlessindoLogo from "../assets/muvi-jaya-blessindo.png";
+import "react-multi-carousel/lib/styles.css";
 
 const SectionContainer = styled.section`
   width: 100%;
-  margin-bottom: 100px;
-
-  @media screen and (max-width: 600px) {
-    margin-bottom: 50px;
-  }
+  margin-bottom: 50px;
 `;
 
 const ContentContainer = styled.div`
@@ -48,18 +43,18 @@ const LogoContainer = styled.div`
   align-items: center;
 
   img {
-    height: 30px;
+    height: 70px;
   }
 
   @media screen and (max-width: 1024px) {
     img {
-      height: 25px;
+      height: 60px;
     }
   }
 
   @media screen and (max-width: 600px) {
     img {
-      height: 20px;
+      height: 50px;
     }
   }
 `;
@@ -96,7 +91,7 @@ export default function CustomersSection(): React.ReactElement {
                   max: 3000,
                   min: 1024,
                 },
-                items: 4,
+                items: 2,
                 slidesToSlide: 1,
               },
               mobile: {
@@ -112,7 +107,7 @@ export default function CustomersSection(): React.ReactElement {
                   max: 1024,
                   min: 720,
                 },
-                items: 3,
+                items: 2,
                 slidesToSlide: 1,
               },
             }}
@@ -126,16 +121,10 @@ export default function CustomersSection(): React.ReactElement {
             transitionDuration={3000}
           >
             <LogoContainer>
-              <img src={logo1} alt="logo" />
+              <img src={forestHillsLogo} alt="forest hills ciwidey logo" />
             </LogoContainer>
             <LogoContainer>
-              <img src={logo2} alt="logo" />
-            </LogoContainer>
-            <LogoContainer>
-              <img src={logo3} alt="logo" />
-            </LogoContainer>
-            <LogoContainer>
-              <img src={logo4} alt="logo" />
+              <img src={muviJayaBlessindoLogo} alt="muvi jaya blessindo logo" />
             </LogoContainer>
           </Carousel>
         </ContentContainer>
