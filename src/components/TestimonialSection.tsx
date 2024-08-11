@@ -10,14 +10,9 @@ import "react-multi-carousel/lib/styles.css";
 
 const SectionContainer = styled.section`
   width: 100%;
-  margin-bottom: 100px;
   background-image: url(${repeatedSquareDark});
   border-radius: 24px 24px 0 0;
   padding: 2rem 0;
-
-  @media screen and (max-width: 600px) {
-    margin-bottom: 50px;
-  }
 `;
 
 const ContentContainer = styled.div`

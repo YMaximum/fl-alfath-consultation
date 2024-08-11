@@ -7,8 +7,7 @@ const Header = styled.header`
   padding: 1rem 0;
   position: sticky;
   top: 0;
-  margin-bottom: 1rem;
-  z-index: 1;
+  z-index: 1000;
   box-shadow: 0px 5px 5px -4px rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: 0px 5px 5px -4px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0px 5px 5px -4px rgba(0, 0, 0, 0.3);
@@ -76,10 +75,13 @@ export default function Navbar(): React.ReactElement {
           <NavItems>
             <ul>
               <li>
-                <a href="#">Tentang</a>
+                <a href="#">Beranda</a>
               </li>
               <li>
                 <a href="#testimony">Testimoni</a>
+              </li>
+              <li>
+                <a href="#about">Tentang Kami</a>
               </li>
               <li>
                 <a href="#contact">Kontak</a>

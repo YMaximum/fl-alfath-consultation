@@ -4,69 +4,62 @@ import BoltIcon from "./icons/BoltIcon";
 import { colors, styleConstants } from "../styles/styles";
 import ChevronRightIcon from "./icons/ChevronRightIcon";
 import DevGuideIcon from "./icons/DevGuideIcon";
+import heroIllustration from "../assets/foods-illustration.png";
 
 const SectionContainer = styled.section`
   margin: 0 auto;
-  max-width: ${styleConstants.containerMaxWidth};
-  padding: 0 2rem;
-  margin-bottom: 170px;
-
-  @media screen and (max-width: 780px) {
-    margin-bottom: 250px;
-  }
-
-  @media screen and (max-width: 600px) {
-    margin-bottom: 350px;
-    padding: 0 1rem;
-  }
-
-  @media screen and (max-width: 450px) {
-    margin-bottom: 400px;
-  }
-
-  @media screen and (max-width: 350px) {
-    margin-bottom: 450px;
-  }
-`;
-
-const Hero = styled.div`
-  width: 100%;
-  height: 500px;
-  background-color: #f1fff6;
-  border-radius: 24px;
-  box-shadow: 0px 6px 12px -1px rgba(0, 0, 0, 0.2),
-    0px 0 90px 49px rgba(0, 0, 0, 0.3) inset;
-  -webkit-box-shadow: 0px 6px 12px -1px rgba(0, 0, 0, 0.2),
-    0px 0 90px 49px rgba(0, 0, 0, 0.3) inset;
-  -moz-box-shadow: 0px 6px 12px -1px rgba(0, 0, 0, 0.2),
-    0px 0 90px 49px rgba(0, 0, 0, 0.3) inset;
-  position: relative;
-  padding: 4rem 6%;
-
-  @media screen and (max-width: 600px) {
-    height: 300px;
-  }
+  margin-bottom: 2rem;
 `;
 
 const FirstContentContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  max-width: 50%;
-
-  @media screen and (max-width: 600px) {
-    max-width: 100%;
-  }
+  margin-bottom: 2rem;
+  width: 100%;
+  background-color: rgb(240, 240, 240);
+  padding: 4rem 0 8rem 0;
 `;
 
-const Name = styled.h1`
-  font-size: 16px;
-  font-weight: 600;
+const FirstContent = styled.div`
+  margin: 0 auto;
+  max-width: ${styleConstants.containerMaxWidth};
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: space-evenly;
+
+  img {
+    height: 350px;
+  }
+
+  div.left {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 70%;
+  }
+
+  @media screen and (max-width: 600px) {
+    padding: 0 1rem;
+    justify-content: start;
+
+    div.left {
+      max-width: 100%;
+    }
+
+    img {
+      display: none;
+    }
+  }
 `;
 
 const Headline = styled.h2`
   font-size: 40px;
   font-weight: 600;
+  color: ${colors.primaryBlack};
+
+  span {
+    color: ${colors.primaryGreen};
+  }
 
   @media screen and (max-width: 780px) {
     font-size: 32px;
@@ -81,8 +74,30 @@ const Headline = styled.h2`
   }
 `;
 
+const SubHeadline = styled.h3`
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: ${colors.secondaryText};
+
+  @media screen and (max-width: 500px) {
+    font-size: 14px;
+  }
+`;
+
+const SecondContent = styled.div`
+  margin: 0 auto;
+  max-width: ${styleConstants.containerMaxWidth};
+  padding: 0 2rem;
+
+  @media screen and (max-width: 600px) {
+    padding: 0 1rem;
+  }
+`;
+
 const SubHero = styled.div`
-  width: 90%;
+  width: 100%;
+  margin-top: -130px;
   background-color: rgba(245, 245, 245, 0.459);
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
@@ -90,9 +105,6 @@ const SubHero = styled.div`
   box-shadow: 0px 6px 25px -1px rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: 0px 6px 25px -1px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0px 6px 25px -1px rgba(0, 0, 0, 0.2);
-  position: absolute;
-  top: 400px;
-  left: 5%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -124,7 +136,7 @@ const SubHeroPointCard = styled.div`
   width: 100%;
 
   svg {
-    fill: ${colors.secondaryText};
+    fill: ${colors.primaryBlack};
     width: 24px;
     height: 24px;
   }
@@ -211,13 +223,23 @@ export default function HeroSection(): React.ReactElement {
   return (
     <>
       <SectionContainer id="hero">
-        <Hero>
-          <FirstContentContainer>
-            <Name>Falhalal</Name>
-            <Headline>
-              Raih Pasar Lebih Luas dengan Sertifikasi Halal untuk Bisnis Anda.
-            </Headline>
-          </FirstContentContainer>
+        <FirstContentContainer>
+          <FirstContent>
+            <div className="left">
+              <Headline>
+                Perluas Jangkauan Bisnis Anda dengan{" "}
+                <span>Sertifikasi Halal</span>
+              </Headline>
+              <SubHeadline>
+                Dapatkan kepercayaan pelanggan dan akses pasar global dengan
+                sertifikat halal yang diakui. Kami siap mendampingi setiap
+                langkah Anda menuju kesuksesan.
+              </SubHeadline>
+            </div>
+            <img src={heroIllustration} alt="hero illustration" />
+          </FirstContent>
+        </FirstContentContainer>
+        <SecondContent>
           <SubHero>
             <SubHeroPoints>
               <SubHeroPointCard>
@@ -262,7 +284,7 @@ export default function HeroSection(): React.ReactElement {
               </a>
             </SubHeroSecondContent>
           </SubHero>
-        </Hero>
+        </SecondContent>
       </SectionContainer>
     </>
   );
