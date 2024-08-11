@@ -43,7 +43,7 @@ const LogoContainer = styled.div`
   align-items: center;
 
   img {
-    height: 70px;
+    height: 80px;
   }
 
   @media screen and (max-width: 1024px) {
@@ -64,7 +64,7 @@ export default function CustomersSection(): React.ReactElement {
     <>
       <SectionContainer>
         <ContentContainer>
-          <Heading>Pelanggan kami :</Heading>
+          <Heading>Client kami :</Heading>
           <Carousel
             additionalTransfrom={0}
             arrows={false}

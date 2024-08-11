@@ -6,6 +6,7 @@ import TestimonialSection from "./TestimonialSection";
 import ServicesSection from "./ServicesSection";
 import Footer from "./Footer";
 import CustomersSection from "./CustomersSection";
+import HalalExplanationSection from "./HalalExplanationSection";
 
 const MainContainer = styled.main`
   width: 100%;
@@ -20,6 +21,7 @@ export default function LandingPage(): React.ReactElement {
         <HeroSection />
         <CustomersSection />
         <ServicesSection />
+        <HalalExplanationSection />
         <TestimonialSection />
         <Footer />
       </MainContainer>

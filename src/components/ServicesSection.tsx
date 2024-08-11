@@ -7,11 +7,9 @@ import DotIllustration from "./icons/DotIllustration";
 
 const SectionContainer = styled.section`
   width: 100%;
-  margin-bottom: 100px;
-
-  @media screen and (max-width: 600px) {
-    margin-bottom: 50px;
-  }
+  padding: 2rem 0 4rem 0;
+  background-color: rgb(240, 240, 240);
+  border-radius: 24px 24px 0 0;
 `;
 
 const ContentContainer = styled.div`
@@ -27,7 +25,6 @@ const ContentContainer = styled.div`
   div.illustration-dot {
     position: absolute;
     bottom: 0;
-    z-index: -1;
 
     svg {
       path {
@@ -56,6 +53,10 @@ const Heading = styled.h2`
 
   span {
     color: ${colors.primaryGreen};
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 24px;
   }
 `;
 

@@ -43,7 +43,7 @@ const Heading = styled.h2`
   }
 
   @media screen and (max-width: 600px) {
-    font-size: 32px;
+    font-size: 24px;
   }
 `;
 
@@ -97,7 +97,7 @@ const TestimonyCard = styled.div`
 export default function TestimonialSection(): React.ReactElement {
   const testimonialData = [
     {
-      company: "Hotel Forest Hill Ciwidey",
+      company: "Hotel Forest Hills Ciwidey",
       profileLogo: forestHillLogo,
       testimony:
         "Saya atas nama management mengucapkan banyak terimakasih kepada tim Falhalal dan jajaran team MUI Jabar khususnya yang telah membantu pengajuan Sertifikat Halal Restaurant kami. Terimakasih banyak sudah sabar dan tanggap membantu kami yang masih awam dalam pengurusan izin tersebut dari awal hingga akhir, memberikan penjelasan yang sangat detail dan juga mendampingi kami sampai ke langkah-langkah penggunaan beberapa portal pengajuan.",
