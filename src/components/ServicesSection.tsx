@@ -7,9 +7,7 @@ import DotIllustration from "./icons/DotIllustration";
 
 const SectionContainer = styled.section`
   width: 100%;
-  padding: 2rem 0 4rem 0;
-  background-color: rgb(240, 240, 240);
-  border-radius: 24px 24px 0 0;
+  padding: 1rem 0 4rem 0;
 `;
 
 const ContentContainer = styled.div`
@@ -104,6 +102,7 @@ const ServiceCard = styled.div`
   h3.service {
     font-weight: 600;
     font-size: 18px;
+    color: ${colors.primaryGreen};
   }
 
   p.desc {
@@ -112,6 +111,13 @@ const ServiceCard = styled.div`
 
   &:hover {
     background-color: #e4e4e4;
+  }
+
+  @media screen and (max-width: 600px) {
+    svg {
+      height: 30px;
+      width: 30px;
+    }
   }
 `;
 
