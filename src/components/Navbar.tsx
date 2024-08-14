@@ -195,7 +195,7 @@ export default function Navbar(): React.ReactElement {
                 <a
                   href={item.href}
                   key={index}
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => setTimeout(() => setIsOpen(false), 500)}
                 >
                   <li>{item.text}</li>
                 </a>
