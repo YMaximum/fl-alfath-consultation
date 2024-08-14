@@ -1,6 +1,7 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { colors, styleConstants } from "../styles/styles";
+import BurgerMenuIcon from "./icons/BurgerMenuIcon";
 
 const Header = styled.header`
   width: 100%;
@@ -40,7 +41,7 @@ const Logo = styled.p`
 `;
 
 const NavItems = styled.div`
-  ul {
+  ul.desktop {
     list-style: none;
     display: flex;
     gap: 1.5rem;
@@ -51,7 +52,7 @@ const NavItems = styled.div`
 
       a {
         text-decoration: none;
-        color: black;
+        color: ${colors.primaryBlack};
         transition: all 0.3s;
 
         &:hover {
@@ -60,10 +61,112 @@ const NavItems = styled.div`
       }
     }
   }
+
+  svg {
+    display: none;
+  }
+
+  @media screen and (max-width: 600px) {
+    ul.desktop {
+      display: none;
+    }
+
+    svg {
+      display: block;
+      fill: ${colors.primaryBlack};
+      scale: 1.2;
+      cursor: pointer;
+    }
+  }
+`;
+
+const DropMenu = styled.div`
+  display: none;
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    background-color: ${colors.primaryWhite};
+    display: block;
+    max-width: ${styleConstants.containerMaxWidth};
+    margin: 0 auto;
+    margin-top: 1rem;
+    padding: 0 1rem;
+
+    ul.mobile {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      a {
+        text-decoration: none;
+        transition: all 0.3s;
+        width: 100%;
+        cursor: pointer;
+        padding: 0.75rem 0;
+        text-align: center;
+        border-radius: 1rem;
+
+        &:first-child {
+          border-top: 1px solid #99999954;
+        }
+
+        &:hover {
+          background-color: #d5d5d5;
+        }
+
+        li {
+          font-weight: 600;
+          color: ${colors.primaryBlack};
+          width: 100%;
+
+          &:hover {
+            color: ${colors.primaryGreen};
+          }
+        }
+      }
+    }
+  }
 `;
 
 export default function Navbar(): React.ReactElement {
-  const HeaderRef = useRef(null);
+  const menuList = [
+    {
+      href: "#",
+      text: "Beranda",
+    },
+    {
+      href: "#testimony",
+      text: "Testimoni",
+    },
+    {
+      href: "#about",
+      text: "Tentang Kami",
+    },
+    {
+      href: "#contact",
+      text: "Kontak",
+    },
+  ];
+
+  const HeaderRef = useRef<HTMLDivElement>(null);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        HeaderRef.current &&
+        !HeaderRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <>
@@ -73,22 +176,33 @@ export default function Navbar(): React.ReactElement {
             <Logo>Falhalal</Logo>
           </a>
           <NavItems>
-            <ul>
-              <li>
-                <a href="#">Beranda</a>
-              </li>
-              <li>
-                <a href="#testimony">Testimoni</a>
-              </li>
-              <li>
-                <a href="#about">Tentang Kami</a>
-              </li>
-              <li>
-                <a href="#contact">Kontak</a>
-              </li>
+            <ul className="desktop">
+              {menuList.map((item, index) => (
+                <li key={index}>
+                  <a href={item.href}>{item.text}</a>
+                </li>
+              ))}
             </ul>
+            <span onClick={() => setIsOpen(!isOpen)}>
+              <BurgerMenuIcon />
+            </span>
           </NavItems>
         </NavContainer>
+        {isOpen && (
+          <DropMenu>
+            <ul className="mobile">
+              {menuList.map((item, index) => (
+                <a
+                  href={item.href}
+                  key={index}
+                  onClick={() => setIsOpen(false)}
+                >
+                  <li>{item.text}</li>
+                </a>
+              ))}
+            </ul>
+          </DropMenu>
+        )}
       </Header>
     </>
   );
