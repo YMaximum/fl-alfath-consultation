@@ -2,10 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { colors, styleConstants } from "../styles/styles";
 import BurgerMenuIcon from "./icons/BurgerMenuIcon";
+import falhalalLogo from "../assets/falhalal-logo-nobg.png";
 
 const Header = styled.header`
   width: 100%;
-  padding: 1rem 0;
+  padding: 1.5rem 0 1rem 0;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -28,15 +29,21 @@ const NavContainer = styled.nav`
   }
 `;
 
-const Logo = styled.p`
-  font-size: 32px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s;
+const Logo = styled.a`
+  img {
+    height: 35px;
+  }
 
-  &:hover {
-    color: ${colors.primaryGreen};
-    scale: 1.1;
+  @media screen and (max-width: 800px) {
+    img {
+      height: 30px;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    img {
+      height: 25px;
+    }
   }
 `;
 
@@ -172,9 +179,9 @@ export default function Navbar(): React.ReactElement {
     <>
       <Header ref={HeaderRef}>
         <NavContainer>
-          <a href="#">
-            <Logo>Falhalal</Logo>
-          </a>
+          <Logo href="#">
+            <img src={falhalalLogo} alt="falhalal logo" />
+          </Logo>
           <NavItems>
             <ul className="desktop">
               {menuList.map((item, index) => (
