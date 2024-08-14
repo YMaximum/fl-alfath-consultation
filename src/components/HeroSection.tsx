@@ -15,7 +15,7 @@ const FirstContentContainer = styled.div`
   margin-bottom: 2rem;
   width: 100%;
   background-color: rgb(240, 240, 240);
-  padding: 4rem 0 8rem 0;
+  padding: 2rem 0 8rem 0;
 `;
 
 const FirstContent = styled.div`
