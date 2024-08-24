@@ -4,6 +4,7 @@ import { colors, styleConstants } from "../styles/styles";
 import contactIllustration from "../assets/contact-illustration.png";
 import WhatsAppIcon from "./icons/WhatsappIcon";
 import StripedCircle from "./icons/StripedCircle";
+import InstagramIcon from "./icons/InstagramIcon";
 
 const FooterContainer = styled.footer`
   width: 100%;
@@ -208,11 +209,31 @@ const CopyrightContainer = styled.div`
   width: 100%;
   border-top: 1px solid #dadada;
   margin-top: 4rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
 
   p {
     color: ${colors.secondaryText};
     font-size: 14px;
     text-align: center;
+  }
+
+  div.social-media {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        height: 20px;
+      }
+    }
   }
 
   @media screen and (max-width: 600px) {
@@ -236,7 +257,7 @@ export default function Footer(): React.ReactElement {
             />
             <div className="right-content">
               <h2 className="heading">Kontak kami</h2>
-              <p>Tertarik untuk berdiskusi lebih lanjut?</p>
+              <p>Rencanakan sertifikasi halal bisnis Anda bersama kami</p>
               <p>Hubungi kami dengan menekan tombol berikut</p>
               <a href="https://wa.me/6281283859611" target="blank">
                 <button className="chat-button">
@@ -254,6 +275,12 @@ export default function Footer(): React.ReactElement {
         </ContactContainer>
         <CopyrightContainer>
           <p>Copyright © 2024. All Rights Reserved</p>
+          <div className="social-media">
+            <p>Follow Us </p>
+            <a href="https://www.instagram.com/falhalal_" target="blank">
+              <InstagramIcon />
+            </a>
+          </div>
         </CopyrightContainer>
       </FooterContainer>
     </>

@@ -48,6 +48,16 @@ const TestimonyContainer = styled(Carousel)`
   box-shadow: 0px 8px 0px 0px ${colors.primaryGreen} inset;
   -webkit-box-shadow: 0px 8px 0px 0px ${colors.primaryGreen} inset;
   -moz-box-shadow: 0px 8px 0px 0px ${colors.primaryGreen} inset;
+  padding-bottom: 1.5rem;
+
+  .react-multi-carousel-dot-list {
+    bottom: 0.75rem;
+    display: none;
+
+    @media screen and (max-width: 1024px) {
+      display: flex;
+    }
+  }
 `;
 
 const TestimonyCard = styled.div`
@@ -95,7 +105,7 @@ export default function TestimonialSection(): React.ReactElement {
       company: "Hotel Forest Hills Ciwidey",
       profileLogo: forestHillLogo,
       testimony:
-        "Saya atas nama management mengucapkan banyak terimakasih kepada tim Falhalal dan jajaran team MUI Jabar khususnya yang telah membantu pengajuan Sertifikat Halal Restaurant kami. Terimakasih banyak sudah sabar dan tanggap membantu kami yang masih awam dalam pengurusan izin tersebut dari awal hingga akhir, memberikan penjelasan yang sangat detail dan juga mendampingi kami sampai ke langkah-langkah penggunaan beberapa portal pengajuan.",
+        "Saya atas nama management mengucapkan banyak terimakasih kepada Pak Naufal dan jajaran team MUI Jabar khususnya yang telah membantu pengajuan Sertifikat Halal Restaurant kami. Terimakasih banyak Pak Naufal sudah sabar dan tanggap membantu kami yang masih awam dalam pengurusan izin tersebut dari awal hingga akhir, memberikan penjelasan yang sangat detail dan juga mendampingi kami sampai ke langkah-langkah penggunaan beberapa portal pengajuan.",
     },
     {
       company: "PT Muvi Jaya Blessindo",

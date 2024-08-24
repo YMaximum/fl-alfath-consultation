@@ -131,31 +131,29 @@ export default function ServicesSection(): React.ReactElement {
           </div>
           <LeftWrapper>
             <Heading>
-              <span>Jasa</span> yang kami tawarkan
+              <span>Solusi</span> Lengkap Sertifikasi Halal
             </Heading>
             <Description>
-              Dapatkan Sertifikasi Halal dengan Mudah Bersama Kami. Dengan
-              pengalaman yang luas, kami akan mendampingi Anda mulai dari
-              penyusunan dokumen, pendaftaran, pemeriksaan, hingga sertifikat
-              halal terbit. Kami hadir untuk mendukung perjalanan bisnis Anda
-              sepanjang proses ini.
+              Dapatkan sertifikat halal dengan mudah dan cepat. Kami akan
+              memandu Anda dari awal hingga akhir, mulai dari konsultasi gratis
+              hingga sertifikat terbit.
             </Description>
           </LeftWrapper>
           <RightWrapper>
             <ServiceCard>
               <GroupPersonIcon />
-              <h3 className="service">Konsultasi</h3>
+              <h3 className="service">Konsultasi Gratis</h3>
               <p className="desc">
-                Tanyakan semua hal seputar sertifikasi halal dan regulasi yang
-                berlaku saat ini.
+                Butuh informasi lebih lanjut? Konsultasikan semua pertanyaan
+                Anda dengan ahli kami secara gratis.
               </p>
             </ServiceCard>
             <ServiceCard>
               <DevGuideIcon />
-              <h3 className="service">Pendampingan</h3>
+              <h3 className="service">Pendampingan Penuh</h3>
               <p className="desc">
-                Pendaftaran halal usahamu akan kami susun sesuai dengan data dan
-                resep usahamu.
+                Tenang saja, kami akan mengurus semua prosesnya. Anda hanya
+                perlu fokus pada bisnis Anda.
               </p>
             </ServiceCard>
           </RightWrapper>

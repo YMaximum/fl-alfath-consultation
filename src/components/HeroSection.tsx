@@ -4,31 +4,45 @@ import BoltIcon from "./icons/BoltIcon";
 import { colors, styleConstants } from "../styles/styles";
 import ChevronRightIcon from "./icons/ChevronRightIcon";
 import DevGuideIcon from "./icons/DevGuideIcon";
-import heroIllustration from "../assets/foods-illustration.png";
+import heroIllustration from "../assets/top-view-local-foods-with-copy-space.png";
 
 const SectionContainer = styled.section`
   margin: 0 auto;
   margin-bottom: 2rem;
+  margin-top: 1rem;
 `;
 
 const FirstContentContainer = styled.div`
+  margin: 0 auto;
   margin-bottom: 2rem;
-  width: 100%;
-  background-color: rgb(240, 240, 240);
+  background-color: red;
   padding: 2rem 0 8rem 0;
+  background-color: rgba(245, 245, 245, 0.459);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  border-radius: 24px;
+  box-shadow: 0px 6px 25px -1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0px 6px 25px -1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 6px 25px -1px rgba(0, 0, 0, 0.2);
+  max-width: 1100px;
+
+  @media screen and (max-width: 1100px) {
+    margin: 0 1rem;
+  }
 `;
 
 const FirstContent = styled.div`
   margin: 0 auto;
   max-width: ${styleConstants.containerMaxWidth};
   padding: 0 2rem;
-  display: flex;
-  align-items: center;
   gap: 0.5rem;
-  justify-content: space-evenly;
+  position: relative;
 
   img {
-    height: 350px;
+    height: 300px;
+    position: absolute;
+    top: -2rem;
+    right: 0;
   }
 
   div.left {
@@ -38,17 +52,19 @@ const FirstContent = styled.div`
     max-width: 70%;
   }
 
-  @media screen and (max-width: 600px) {
-    padding: 0 1rem;
-    justify-content: start;
+  @media screen and (max-width: 800px) {
+    img {
+      display: none;
+    }
 
     div.left {
       max-width: 100%;
     }
+  }
 
-    img {
-      display: none;
-    }
+  @media screen and (max-width: 600px) {
+    padding: 0 1rem;
+    justify-content: start;
   }
 `;
 
@@ -88,10 +104,10 @@ const SubHeadline = styled.h3`
 const SecondContent = styled.div`
   margin: 0 auto;
   max-width: ${styleConstants.containerMaxWidth};
-  padding: 0 2rem;
+  padding: 0 3rem;
 
-  @media screen and (max-width: 600px) {
-    padding: 0 1rem;
+  @media screen and (max-width: 800px) {
+    padding: 0 2rem;
   }
 `;
 
@@ -110,13 +126,17 @@ const SubHero = styled.div`
   gap: 2rem;
   padding: 2rem 3rem;
 
-  @media screen and (max-width: 780px) {
+  @media screen and (max-width: 1100px) {
+    margin-top: -100px;
+  }
+
+  @media screen and (max-width: 800px) {
     top: 300px;
   }
 
   @media screen and (max-width: 600px) {
     top: 200px;
-    padding: 2rem 2rem;
+    padding: 1.5rem 1.5rem;
   }
 `;
 
@@ -154,6 +174,14 @@ const SubHeroPointCard = styled.div`
     p {
       font-size: 14px;
       color: ${colors.secondaryText};
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    div {
+      h3 {
+        font-size: 16px;
+      }
     }
   }
 `;
@@ -227,13 +255,14 @@ export default function HeroSection(): React.ReactElement {
           <FirstContent>
             <div className="left">
               <Headline>
-                Perluas Jangkauan Bisnis Anda dengan{" "}
+                Tingkatkan Keuntungan Hingga 200% dengan{" "}
                 <span>Sertifikasi Halal</span>
               </Headline>
               <SubHeadline>
-                Dapatkan kepercayaan pelanggan dan akses pasar global dengan
-                sertifikat halal yang diakui. Kami siap mendampingi setiap
-                langkah Anda menuju kesuksesan.
+                Raih kepercayaan lebih dari jutaan konsumen muslim dan akses
+                pasar global yang lebih luas. Kami akan memandu Anda melalui
+                setiap tahap proses sertifikasi halal, sehingga Anda dapat fokus
+                pada bisnis inti.
               </SubHeadline>
             </div>
             <img src={heroIllustration} alt="hero illustration" />
@@ -245,26 +274,30 @@ export default function HeroSection(): React.ReactElement {
               <SubHeroPointCard>
                 <DevGuideIcon />
                 <div>
-                  <h3>200+ Sertifikasi</h3>
+                  <h3>200+ Klien Senang</h3>
                   <p>
-                    Kami telah berpartisipasi dalam 200+ proses sertifikasi
-                    halal
+                    Kepuasan Lebih dari 200 perusahaan telah membuktikan bahwa
+                    kami memberikan pelayanan terbaik
                   </p>
                 </div>
               </SubHeroPointCard>
               <SubHeroPointCard>
                 <BoltIcon />
                 <div>
-                  <h3>2+ Tahun</h3>
-                  <p>Pengalaman 2+ tahun dengan regulasi halal terbaru</p>
+                  <h3>2+ Tahun Pengalaman</h3>
+                  <p>
+                    Memahami setiap tantangan yang Anda hadapi dalam proses
+                    sertifikasi halal
+                  </p>
                 </div>
               </SubHeroPointCard>
               <SubHeroPointCard>
                 <BoltIcon />
                 <div>
-                  <h3>1 Bulan Saja</h3>
+                  <h3>Proses Cepat, Hasil Terjamin</h3>
                   <p>
-                    Hanya butuh 1 bulan untuk jaminan terbit sertifikat halal
+                    Dapatkan sertifikat halal Anda dalam waktu 1 bulan tanpa
+                    mengorbankan kualitas
                   </p>
                 </div>
               </SubHeroPointCard>
@@ -272,9 +305,11 @@ export default function HeroSection(): React.ReactElement {
             <SubHeroSecondContent>
               <GettingStartedHeadlines>
                 <p>
-                  Ini adalah momen usahamu, <span>saatnya halal</span>
+                  Momen usahamul <span>#saatnyahalal</span>
                 </p>
-                <p>Gunakan layanan kami sekarang</p>
+                <p>
+                  Percayakan sertifikasi halal Anda pada ahli yang berpengalaman
+                </p>
               </GettingStartedHeadlines>
               <a href="#contact">
                 <GettingStartedButton>

@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { colors, styleConstants } from "../styles/styles";
-import manSillhoutte from "../assets/flat-design-person-sitting-silhouette.png";
+import halalLogo from "../assets/logo-halal-indonesia.png";
+import lppomLogo from "../assets/lppom-mui-logo.webp";
+import itbLogo from "../assets/logo-itb-1024.png";
 
 const SectionContainer = styled.section`
   width: 100%;
@@ -40,8 +42,8 @@ const Heading = styled.h2`
 
 const Card = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
 
   div.left {
     display: flex;
@@ -53,19 +55,46 @@ const Card = styled.div`
     }
   }
 
-  img {
-    height: 250px;
+  div.logos {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    img {
+      height: 100px;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    div.logos {
+      img {
+        height: 80px;
+      }
+    }
   }
 
   @media screen and (max-width: 600px) {
-    img {
-      display: none;
-    }
-
     div.left {
       p {
         line-height: 20px;
         font-size: 14px;
+      }
+    }
+
+    div.logos {
+      img {
+        height: 60px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    div.logos {
+      flex-direction: column;
+      align-items: center;
+
+      img {
+        width: fit-content;
       }
     }
   }
@@ -82,31 +111,18 @@ export default function AboutUs(): React.ReactElement {
           <Card>
             <div className="left">
               <p>
-                Didirikan oleh Naufal Alfath, seorang profesional muda yang
-                berdedikasi dalam bidang sertifikasi halal, kami hadir untuk
-                membantu bisnis Anda meraih pasar yang lebih luas dan memastikan
-                produk Anda memenuhi standar halal yang diakui.
-              </p>
-              <p>
-                Naufal merupakan lulusan Teknik Pangan, Fakultas Teknologi
-                Industri, Institut Teknologi Bandung pada tahun 2022. Setelah
-                lulus, ia memulai kariernya sebagai Auditor Halal di LPPOM Jawa
-                Barat. Sejak tahun 2022 hingga sekarang, Naufal telah terlibat
-                langsung dalam proses audit halal untuk berbagai jenis produk,
-                memastikan bahwa setiap produk yang diauditnya sesuai dengan
-                ketentuan yang berlaku.
-              </p>
-              <p>
-                Dengan latar belakang pendidikan yang kuat dan pengalaman
-                sebagai auditor halal, Naufal memiliki pemahaman mendalam
-                tentang pentingnya sertifikasi halal bagi bisnis. Bersama
-                timnya, ia berkomitmen untuk memberikan layanan konsultasi dan
-                pendampingan yang profesional, efektif, dan terpercaya, sehingga
-                Anda dapat menjalani proses sertifikasi halal dengan percaya
-                diri.
+                Didirikan oleh Naufal Alfath, alumni Teknik Pangan ITB dengan
+                pengalaman sebagai auditor halal LPPOM. Kami hadir untuk
+                membantu bisnis Anda meraih sertifikasi halal. Dengan
+                pengetahuan mendalam tentang standar halal, kami siap memandu
+                Anda melalui setiap tahap proses.
               </p>
             </div>
-            <img src={manSillhoutte} alt="sitting man sillhoutte" />
+            <div className="logos">
+              <img src={halalLogo} alt="halal logo indonesia" />
+              <img src={lppomLogo} alt="lppom logo" />
+              <img src={itbLogo} alt="itb logo" />
+            </div>
           </Card>
         </ContentContainer>
       </SectionContainer>
