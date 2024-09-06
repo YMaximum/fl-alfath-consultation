@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { colors, styleConstants } from "../styles/styles";
 import BurgerMenuIcon from "./icons/BurgerMenuIcon";
-import falhalalLogo from "../assets/falhalal-logo-nobg.png";
+import falhalalLogo from "../assets/falhalal-logo-nobg-new.png";
 
 const Header = styled.header`
   width: 100%;
@@ -30,19 +30,29 @@ const NavContainer = styled.nav`
 `;
 
 const Logo = styled.a`
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
   img {
-    height: 35px;
+    height: 100px;
   }
 
   @media screen and (max-width: 800px) {
+    height: 30px;
+
     img {
-      height: 30px;
+      height: 85px;
     }
   }
 
   @media screen and (max-width: 600px) {
+    height: 25px;
+
     img {
-      height: 25px;
+      height: 70px;
     }
   }
 `;

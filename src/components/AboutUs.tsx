@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { colors, styleConstants } from "../styles/styles";
 import halalLogo from "../assets/logo-halal-indonesia.png";
-import lppomLogo from "../assets/lppom-mui-logo.webp";
+import lppomLogo from "../assets/lppom-mui-logo-circle.png";
 import itbLogo from "../assets/logo-itb-1024.png";
 
 const SectionContainer = styled.section`
@@ -60,6 +60,10 @@ const Card = styled.div`
     justify-content: center;
     gap: 1rem;
 
+    .lppom {
+      height: 110px;
+    }
+
     img {
       height: 100px;
     }
@@ -67,6 +71,10 @@ const Card = styled.div`
 
   @media screen and (max-width: 800px) {
     div.logos {
+      .lppom {
+        height: 90px;
+      }
+
       img {
         height: 80px;
       }
@@ -82,6 +90,10 @@ const Card = styled.div`
     }
 
     div.logos {
+      .lppom {
+        height: 70px;
+      }
+
       img {
         height: 60px;
       }
@@ -90,8 +102,7 @@ const Card = styled.div`
 
   @media screen and (max-width: 450px) {
     div.logos {
-      flex-direction: column;
-      align-items: center;
+      flex-wrap: wrap;
 
       img {
         width: fit-content;
@@ -120,7 +131,7 @@ export default function AboutUs(): React.ReactElement {
             </div>
             <div className="logos">
               <img src={halalLogo} alt="halal logo indonesia" />
-              <img src={lppomLogo} alt="lppom logo" />
+              <img src={lppomLogo} className="lppom" alt="lppom logo" />
               <img src={itbLogo} alt="itb logo" />
             </div>
           </Card>
