@@ -20,7 +20,7 @@ const SectionContainer = styled.section`
 const FirstContentContainer = styled.div`
   margin: 0 auto;
   margin-bottom: 2rem;
-  padding: 2.5rem 0 9rem 0;
+  padding: 2.5rem 0 6rem 0;
   background: linear-gradient(
     135deg,
     rgba(245, 245, 245, 0.9) 0%,
@@ -31,7 +31,6 @@ const FirstContentContainer = styled.div`
   box-shadow: 0px 10px 40px -5px rgba(0, 0, 0, 0.1);
   max-width: 1100px;
   position: relative;
-  overflow: hidden;
 
   &::before {
     content: "";
@@ -41,10 +40,15 @@ const FirstContentContainer = styled.div`
     right: 0;
     height: 4px;
     background: linear-gradient(90deg, ${colors.primaryGreen} 0%, #00d665 100%);
+    border-radius: 24px 24px 0 0;
   }
 
   @media screen and (max-width: 1100px) {
     margin: 0 1rem;
+  }
+
+  @media screen and (max-width: 600px) {
+    padding: 2rem 0 4rem 0;
   }
 `;
 
@@ -54,24 +58,40 @@ const FirstContent = styled.div`
   padding: 0 2rem;
   gap: 0.5rem;
   position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
 
   img {
-    height: 320px;
-    position: absolute;
-    top: -2rem;
-    right: 0;
+    height: 280px;
+    object-fit: contain;
     animation: ${float} 4s ease-in-out infinite;
     filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+    flex-shrink: 0;
+    margin-left: 2rem;
   }
 
   div.left {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
-    max-width: 70%;
+    flex: 1;
+    max-width: 60%;
+  }
+
+  @media screen and (max-width: 900px) {
+    img {
+      height: 220px;
+    }
+
+    div.left {
+      max-width: 55%;
+    }
   }
 
   @media screen and (max-width: 800px) {
+    flex-direction: column;
+
     img {
       display: none;
     }
@@ -83,7 +103,6 @@ const FirstContent = styled.div`
 
   @media screen and (max-width: 600px) {
     padding: 0 1.5rem;
-    justify-content: start;
   }
 `;
 
@@ -105,7 +124,7 @@ const Headline = styled.h2`
       left: 0;
       width: 100%;
       height: 8px;
-      background-color: ${colors.primaryGreenLight};
+      background-color: rgba(0, 170, 91, 0.2);
       z-index: -1;
       border-radius: 4px;
     }
@@ -139,60 +158,63 @@ const SubHeadline = styled.h3`
 const SecondContent = styled.div`
   margin: 0 auto;
   max-width: 1100px;
-  padding: 0 3rem;
+  padding: 0 2rem;
+  margin-top: -5rem;
+  position: relative;
+  z-index: 10;
 
-  @media screen and (max-width: 800px) {
-    padding: 0 2rem;
+  @media screen and (max-width: 1100px) {
+    margin-top: -4rem;
+  }
+
+  @media screen and (max-width: 600px) {
+    padding: 0 1rem;
+    margin-top: -3rem;
   }
 `;
 
 const SubHero = styled.div`
   width: 100%;
-  margin-top: -130px;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(10px);
   border-radius: 24px;
   box-shadow: 0px 10px 40px -5px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  padding: 2.5rem 3rem;
+  gap: 1.5rem;
+  padding: 2rem 2.5rem;
   position: relative;
-
-  @media screen and (max-width: 1100px) {
-    margin-top: -100px;
-  }
-
-  @media screen and (max-width: 800px) {
-    top: 300px;
-  }
 
   @media screen and (max-width: 600px) {
     padding: 1.5rem;
+    gap: 1rem;
   }
 `;
 
 const SubHeroPoints = styled.div`
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
 
-  @media screen and (max-width: 780px) {
-    flex-direction: column;
-    gap: 1.5rem;
+  @media screen and (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 `;
 
 const SubHeroPointCard = styled.div`
   display: flex;
   gap: 1rem;
-  width: 100%;
   padding: 1rem;
   border-radius: 16px;
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: ${colors.primaryGreenLighter};
+    background-color: rgba(0, 170, 91, 0.05);
     transform: translateX(4px);
   }
 
@@ -204,28 +226,41 @@ const SubHeroPointCard = styled.div`
   }
 
   div {
-    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 
     h3 {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 700;
       color: ${colors.primaryBlack};
+      margin: 0;
     }
 
     p {
       font-size: 14px;
       color: ${colors.secondaryText};
       line-height: 1.5;
+      margin: 0;
     }
   }
 
   @media screen and (max-width: 600px) {
+    padding: 0.75rem;
+
+    svg {
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+    }
+
     div {
       h3 {
         font-size: 16px;
+      }
+
+      p {
+        font-size: 13px;
       }
     }
   }
@@ -237,6 +272,7 @@ const SubHeroSecondContent = styled.div`
   align-items: center;
   padding-top: 1rem;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
+  margin-top: 0.5rem;
 
   a {
     text-decoration: none;
@@ -244,7 +280,7 @@ const SubHeroSecondContent = styled.div`
 
   @media screen and (max-width: 780px) {
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
     text-align: center;
   }
 `;
@@ -255,6 +291,8 @@ const GettingStartedHeadlines = styled.div`
   gap: 0.5rem;
 
   p {
+    margin: 0;
+
     &:first-child {
       font-size: 18px;
       font-weight: 700;
@@ -269,6 +307,10 @@ const GettingStartedHeadlines = styled.div`
       font-weight: 500;
       color: ${colors.secondaryText};
     }
+  }
+
+  @media screen and (max-width: 780px) {
+    align-items: center;
   }
 `;
 
