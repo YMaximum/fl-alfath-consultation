@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { colors, styleConstants } from "../styles/styles";
+import { colors } from "../styles/styles";
 import Carousel from "react-multi-carousel";
 import forestHillsLogo from "../assets/forest-hills-ciwidey-logo.png";
 import muviJayaBlessindoLogo from "../assets/muvi-jaya-blessindo.png";
@@ -8,12 +8,12 @@ import "react-multi-carousel/lib/styles.css";
 
 const SectionContainer = styled.section`
   width: 100%;
-  margin-bottom: 50px;
+  padding: 1rem 0;
 `;
 
 const ContentContainer = styled.div`
   margin: 0 auto;
-  max-width: ${styleConstants.containerMaxWidth};
+  max-width: 1100px;
   padding: 0 2rem;
 
   @media screen and (max-width: 600px) {
@@ -22,18 +22,17 @@ const ContentContainer = styled.div`
 `;
 
 const Heading = styled.h2`
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 600;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   text-align: center;
   color: ${colors.secondaryText};
-
-  span {
-    color: ${colors.primaryGreen};
-  }
+  text-transform: uppercase;
+  letter-spacing: 2px;
 
   @media screen and (max-width: 600px) {
-    margin-bottom: 1rem;
+    font-size: 12px;
+    letter-spacing: 1px;
   }
 `;
 
@@ -41,94 +40,103 @@ const LogoContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1rem 2rem;
 
   img {
-    height: 80px;
+    height: 70px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: all 0.3s ease;
+  }
+
+  &:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
   }
 
   @media screen and (max-width: 1024px) {
     img {
-      height: 60px;
+      height: 55px;
     }
   }
 
   @media screen and (max-width: 600px) {
+    padding: 0.5rem 1rem;
+
     img {
-      height: 50px;
+      height: 45px;
     }
   }
 `;
 
+const DividerLine = styled.div`
+  width: 60px;
+  height: 2px;
+  background: ${colors.primaryGreen};
+  margin: 0 auto 1rem;
+  border-radius: 2px;
+`;
+
 export default function CustomersSection(): React.ReactElement {
+  const clients = [
+    {
+      name: "Forest Hills Ciwidey",
+      logo: forestHillsLogo,
+      alt: "Hotel Forest Hills Ciwidey - Klien Sertifikasi Halal Falhalal",
+    },
+    {
+      name: "PT Muvi Jaya Blessindo",
+      logo: muviJayaBlessindoLogo,
+      alt: "PT Muvi Jaya Blessindo - Klien Sertifikasi Halal Falhalal",
+    },
+  ];
+
   return (
-    <>
-      <SectionContainer>
-        <ContentContainer>
-          <Heading>Client kami :</Heading>
-          <Carousel
-            additionalTransfrom={0}
-            arrows={false}
-            autoPlay
-            autoPlaySpeed={1}
-            centerMode={false}
-            className=""
-            containerClass="container-with-dots"
-            customTransition="all 1s linear"
-            dotListClass=""
-            draggable
-            focusOnSelect={false}
-            infinite
-            itemClass=""
-            keyBoardControl
-            minimumTouchDrag={80}
-            pauseOnHover
-            renderArrowsWhenDisabled={false}
-            renderButtonGroupOutside={false}
-            renderDotsOutside={false}
-            responsive={{
-              desktop: {
-                breakpoint: {
-                  max: 3000,
-                  min: 1024,
-                },
-                items: 2,
-                slidesToSlide: 1,
-              },
-              mobile: {
-                breakpoint: {
-                  max: 720,
-                  min: 0,
-                },
-                items: 2,
-                slidesToSlide: 1,
-              },
-              tablet: {
-                breakpoint: {
-                  max: 1024,
-                  min: 720,
-                },
-                items: 2,
-                slidesToSlide: 1,
-              },
-            }}
-            rewind={false}
-            rewindWithAnimation={false}
-            rtl={false}
-            shouldResetAutoplay
-            showDots={false}
-            sliderClass=""
-            swipeable
-            transitionDuration={3000}
-          >
-            <LogoContainer>
-              <img src={forestHillsLogo} alt="forest hills ciwidey logo" />
+    <SectionContainer aria-label="Klien kami">
+      <ContentContainer>
+        <DividerLine />
+        <Heading>Dipercaya oleh perusahaan terpercaya</Heading>
+        <Carousel
+          additionalTransfrom={0}
+          arrows={false}
+          autoPlay
+          autoPlaySpeed={3000}
+          centerMode={false}
+          customTransition="transform 500ms ease-in-out"
+          draggable
+          infinite
+          keyBoardControl
+          minimumTouchDrag={80}
+          pauseOnHover
+          responsive={{
+            desktop: {
+              breakpoint: { max: 3000, min: 1024 },
+              items: 3,
+              slidesToSlide: 1,
+            },
+            tablet: {
+              breakpoint: { max: 1024, min: 600 },
+              items: 2,
+              slidesToSlide: 1,
+            },
+            mobile: {
+              breakpoint: { max: 600, min: 0 },
+              items: 2,
+              slidesToSlide: 1,
+            },
+          }}
+          showDots={false}
+          swipeable
+          transitionDuration={500}
+        >
+          {clients.map((client, index) => (
+            <LogoContainer key={index}>
+              <img src={client.logo} alt={client.alt} loading="lazy" />
             </LogoContainer>
-            <LogoContainer>
-              <img src={muviJayaBlessindoLogo} alt="muvi jaya blessindo logo" />
-            </LogoContainer>
-          </Carousel>
-        </ContentContainer>
-      </SectionContainer>
-    </>
+          ))}
+        </Carousel>
+      </ContentContainer>
+    </SectionContainer>
   );
 }

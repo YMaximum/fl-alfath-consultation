@@ -1,24 +1,27 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import { colors, styleConstants } from "../styles/styles";
+import { colors } from "../styles/styles";
 import HealthAndSafetyIcon from "./icons/HealthAndSafetyIcon";
 import InvestmentIcon from "./icons/InvestmentIcon";
 import TimerIcon from "./icons/TimerIcon";
 
 const SectionContainer = styled.section`
   width: 100%;
-  padding: 4rem 0;
-  background-color: rgb(240, 240, 240);
-  border-radius: 24px 24px 0 0;
+  padding: 5rem 0;
+  background: linear-gradient(
+    180deg,
+    ${colors.primaryWhite} 0%,
+    rgba(240, 240, 240, 0.5) 100%
+  );
 
   @media screen and (max-width: 600px) {
-    padding: 2rem 0;
+    padding: 3rem 0;
   }
 `;
 
 const ContentContainer = styled.div`
   margin: 0 auto;
-  max-width: ${styleConstants.containerMaxWidth};
+  max-width: 1100px;
   padding: 0 2rem;
 
   @media screen and (max-width: 600px) {
@@ -26,114 +29,207 @@ const ContentContainer = styled.div`
   }
 `;
 
-const Heading = styled.h2`
-  font-size: 32px;
-  font-weight: 600;
+const HeaderSection = styled.div`
   text-align: center;
-  margin-bottom: 2rem;
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+`;
+
+const Heading = styled.h2`
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: ${colors.primaryBlack};
+  line-height: 1.2;
 
   span {
     color: ${colors.primaryGreen};
   }
 
   @media screen and (max-width: 600px) {
-    text-align: start;
-    font-size: 24px;
+    font-size: 26px;
   }
+`;
+
+const Subheading = styled.p`
+  font-size: 16px;
+  color: ${colors.secondaryText};
+  line-height: 1.6;
 `;
 
 const CardContainer = styled.div`
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 
-  @media screen and (max-width: 800px) {
-    flex-direction: column;
+  @media screen and (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 `;
 
-const Card = styled.div`
+interface CardProps {
+  $isVisible: boolean;
+  $delay?: number;
+}
+
+const Card = styled.div<CardProps>`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  background-color: #00aa5b10;
-  padding: 1.5rem;
-  border-radius: 1rem;
-  cursor: pointer;
-  transition: all 0.3s;
+  background: white;
+  padding: 2rem;
+  border-radius: 24px;
+  border: 1px solid rgba(0, 170, 91, 0.1);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0)};
+  transform: ${({ $isVisible }) =>
+    $isVisible ? "translateY(0)" : "translateY(30px)"};
+  transition-delay: ${({ $delay }) => $delay || 0}ms;
 
-  svg {
-    fill: ${colors.primaryGreen};
-    width: 50px;
-    height: 50px;
-  }
-
-  h3.subtitle {
-    color: ${colors.primaryGreen};
-    font-size: 18px;
-    font-weight: 600;
-  }
-
-  p.content {
-    font-size: 14px;
-    line-height: 20px;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(
+      90deg,
+      ${colors.primaryGreen} 0%,
+      #00d665 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 
   &:hover {
-    box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.15);
-    -webkit-box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 170, 91, 0.15);
+    border-color: ${colors.primaryGreenLight};
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  .icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background: ${colors.primaryGreenLighter};
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    transition: all 0.3s ease;
+  }
+
+  &:hover .icon-wrapper {
+    background: ${colors.primaryGreenLight};
+    transform: scale(1.1);
+  }
+
+  svg {
+    fill: ${colors.primaryGreen};
+    width: 32px;
+    height: 32px;
+  }
+
+  h3.subtitle {
+    color: ${colors.primaryBlack};
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  p.content {
+    font-size: 15px;
+    line-height: 1.7;
+    color: ${colors.secondaryText};
+    margin: 0;
   }
 
   @media screen and (max-width: 600px) {
-    svg {
-      width: 30px;
-      height: 30px;
+    padding: 1.5rem;
+
+    h3.subtitle {
+      font-size: 18px;
+    }
+
+    p.content {
+      font-size: 14px;
     }
   }
 `;
 
 export default function CompanionBenefitsSection(): React.ReactElement {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const benefits = [
     {
-      subTitle: "Tenang dan Aman",
+      icon: <HealthAndSafetyIcon />,
+      title: "Tenang dan Aman",
       content:
         "Anda akan didampingi oleh tenaga profesional yang berpengalaman dalam proses sertifikasi halal, memastikan setiap langkah berjalan dengan lancar.",
-      illustration: <HealthAndSafetyIcon />,
     },
     {
-      subTitle: "Investasi yang Cerdas",
+      icon: <InvestmentIcon />,
+      title: "Investasi yang Cerdas",
       content:
         "Biaya yang Anda keluarkan akan memberikan manfaat jangka panjang yang signifikan, dengan dampak yang jauh lebih besar untuk bisnis Anda.",
-      illustration: <InvestmentIcon />,
     },
     {
-      subTitle: "Proses Cepat dan Efisien",
+      icon: <TimerIcon />,
+      title: "Proses Cepat dan Efisien",
       content:
         "Kami akan mengatasi setiap hambatan yang mungkin muncul dalam proses sertifikasi, memberikan solusi yang tepat sehingga proses dapat selesai dengan cepat.",
-      illustration: <TimerIcon />,
     },
   ];
 
   return (
-    <>
-      <SectionContainer>
-        <ContentContainer>
+    <SectionContainer ref={sectionRef}>
+      <ContentContainer>
+        <HeaderSection>
           <Heading>
-            Keuntungan jasa <span>pendampingan</span> kami
+            Keuntungan Jasa <span>Pendampingan</span> Kami
           </Heading>
-          <CardContainer>
-            {benefits.map((item, index) => (
-              <Card key={index}>
-                {item.illustration}
-                <h3 className="subtitle">{item.subTitle}</h3>
-                <p className="content">{item.content}</p>
-              </Card>
-            ))}
-          </CardContainer>
-        </ContentContainer>
-      </SectionContainer>
-    </>
+          <Subheading>
+            Nikmati kemudahan dan keamanan dalam proses sertifikasi halal bersama
+            kami
+          </Subheading>
+        </HeaderSection>
+        <CardContainer>
+          {benefits.map((benefit, index) => (
+            <Card key={index} $isVisible={isVisible} $delay={index * 150}>
+              <div className="icon-wrapper">{benefit.icon}</div>
+              <h3 className="subtitle">{benefit.title}</h3>
+              <p className="content">{benefit.content}</p>
+            </Card>
+          ))}
+        </CardContainer>
+      </ContentContainer>
+    </SectionContainer>
   );
 }
